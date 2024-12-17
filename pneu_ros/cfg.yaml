@@ -1,0 +1,58 @@
+pid:
+  anti_windup:
+    Ka: 10
+  freq: 50
+  gains:
+    Kd_neg: 0.0008249999999999999
+    Kd_pos: 0.00225
+    Ki_neg: 0.013199999999999998
+    Ki_pos: 0.009
+    Kp_neg: 0.006599999999999999
+    Kp_pos: 0.009
+rl:
+  env:
+    init_press:
+      init_neg_press: 101.325
+      init_pos_press: 101.325
+    pid: 
+      Ka: 10
+      Kd_neg: 0.0
+      Kd_pos: 0.0
+      Ki_neg: 0.01
+      Ki_pos: 0.01
+      Kp_neg: 0.0
+      Kp_pos: 0.0
+    pred:
+      delay: 0
+      freq: 50
+      noise: false
+      scale: true
+    real:
+      freq: 50
+      scale: true
+    sim:
+      delay: 0.1
+      freq: 50
+      noise: false
+      noise_std: 0
+      offset_neg: 0
+      offset_pos: 0
+      scale: true
+  model_name: Ours000_v09
+ros:
+  ctrl:
+    msg_keys:
+    - pump_ctrl_pos
+    - pump_ctrl_neg
+    topic: /RL_pwm
+  node_name: controller
+  ref:
+    msg_keys:
+    - pump_ref_pos
+    - pump_ref_neg
+    topic: /ref_value
+  sen:
+    msg_keys:
+    - pump_sen_pos
+    - pump_sen_neg
+    topic: /sen_value
